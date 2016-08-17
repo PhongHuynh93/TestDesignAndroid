@@ -2,6 +2,7 @@ package dhbk.android.testdesignandroid;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.widget.ListView;
 
 public class MainActivity extends BaseActivity {
     /**
@@ -14,27 +15,42 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // todo 1 add toolbar
+        //  1 add toolbar
         setupToolbar();
 
-        // TODO: 8/17/16 2 check tablet or mobile
+        // : 8/17/16 2 check tablet or mobile, if tablet - add listview
         checkTabletOrMobile();
 
-        // TODO: 8/17/16 3 add list
-        addList();
+        // : 8/17/16 3 add detail view for tablet
+        if (savedInstanceState == null && twoPaneMode) {
+            addList();
+        }
     }
 
     private void addList() {
-
+        ArticleDetailFragment fragment =  ArticleDetailFragment.newInstance(DummyContent.ITEMS.get(0).id);
+        getFragmentManager().beginTransaction().replace(R.id.article_detail_container, fragment).commit();
     }
 
+    /**
+     * if use for tablet, add listview
+     */
     private void checkTabletOrMobile() {
         if (isTwoPaneLayoutUsed()) {
             twoPaneMode = true;
-            LogUtil.logD("TEST","TWO POANE TASDFES");
+            LogUtil.logD("TEST", "TWO POANE TASDFES");
             enableActiveItemState();
         }
     }
+
+    /**
+     * Enables the functionality that selected items are automatically highlighted.
+     */
+    private void enableActiveItemState() {
+        ArticleListFragment fragmentById = (ArticleListFragment) getSupportFragmentManager().findFragmentById(R.id.article_list);
+        fragmentById.getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+    }
+
 
     /**
      * Is the container present? If so, we are using the two-pane layout.
@@ -53,7 +69,6 @@ public class MainActivity extends BaseActivity {
         ab.setHomeAsUpIndicator(R.drawable.ic_menu);
         ab.setDisplayHomeAsUpEnabled(true);
     }
-
 
 
 }
