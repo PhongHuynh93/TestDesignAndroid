@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.NavigationView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_view"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:layout_gravity="start"
-    android:fitsSystemWindows="true"
-    app:headerLayout="@layout/navigation_header"
-    app:menu="@menu/drawer_view"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--fixme, add this menu in gist, group 1 -->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_quotes"
+            android:icon="@drawable/ic_discuss"
+            android:title="@string/navigation_quotes" />
+        <item
+            android:id="@+id/nav_samples"
+            android:icon="@drawable/ic_forum"
+            android:title="@string/navigation_samples" />
+
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_action_settings"
+            android:title="@string/navigation_settings" />
+    </group>
+
+    <!--group 2-->
+    <item android:title="@string/navigation_sub_items">
+        <menu>
+            <item
+                android:icon="@drawable/ic_dashboard"
+                android:title="@string/navigation_dummy_item_1" />
+            <item
+                android:icon="@drawable/ic_dashboard"
+                android:title="@string/navigation_dummy_item_2" />
+        </menu>
+    </item>
+
+</menu>

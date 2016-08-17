@@ -23,6 +23,14 @@ public class MainActivity extends BaseActivity {
         addList();
     }
 
+    private void addList() {
+
+    }
+
+    private void checkTabletOrMobile() {
+
+    }
+
 
     private void setupToolbar() {
         final ActionBar ab = getActionBarToolbar();
