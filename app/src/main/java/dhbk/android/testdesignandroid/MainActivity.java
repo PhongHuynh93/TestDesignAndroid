@@ -1,5 +1,6 @@
 package dhbk.android.testdesignandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.widget.ListView;
@@ -74,4 +75,22 @@ public class MainActivity extends BaseActivity implements ArticleListFragment.Ca
     }
 
 
+    /**
+     * Called when an item has been selected
+     *
+     * @param id the selected quote ID
+     */
+    @Override
+    public void onItemSelected(String id) {
+        if (twoPaneMode) {
+            // Show the quote detail information by replacing the DetailFragment via transaction.
+            ArticleDetailFragment fragment = ArticleDetailFragment.newInstance(id);
+            getSupportFragmentManager().beginTransaction().replace(R.id.article_detail_container, fragment).commit();
+        } else {
+            // Start the detail activity in single pane mode.
+            Intent detailIntent = new Intent(this, ArticleDetailActivity.class);
+            detailIntent.putExtra(ArticleDetailFragment.ARG_ITEM_ID, id);
+            startActivity(detailIntent);
+        }
+    }
 }
