@@ -34,7 +34,7 @@
         <item name="android:orientation">vertical</item>
     </style>
 
-    <!--toolbar-->
+    <!--toolbar, which has theme depend on primary color-->
     <style name="Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:background">?attr/colorPrimary</item>
     </style>
