@@ -3,6 +3,8 @@ package dhbk.android.testdesignandroid;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
 
 public class MainActivity extends BaseActivity implements ArticleListFragment.Callback{
@@ -26,6 +28,23 @@ public class MainActivity extends BaseActivity implements ArticleListFragment.Ca
         if (savedInstanceState == null && twoPaneMode) {
             addList();
         }
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.sample_actions, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                openDrawer();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -93,4 +112,6 @@ public class MainActivity extends BaseActivity implements ArticleListFragment.Ca
             startActivity(detailIntent);
         }
     }
+
+
 }
