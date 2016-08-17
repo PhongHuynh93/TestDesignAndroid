@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.widget.ListView;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements ArticleListFragment.Callback{
     /**
      * Whether or not the activity is running on a device with a large screen
      */
