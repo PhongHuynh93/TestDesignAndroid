@@ -14,8 +14,19 @@ import android.view.ViewGroup;
 public class ArticleDetailFragment extends Fragment {
 
 
+    public static final String ARG_ITEM_ID = "item_id";
+
     public ArticleDetailFragment() {
         // Required empty public constructor
+    }
+
+
+    public static ArticleDetailFragment newInstance(String itemID) {
+        ArticleDetailFragment fragment = new ArticleDetailFragment();
+        Bundle args = new Bundle();
+        args.putString(ArticleDetailFragment.ARG_ITEM_ID, itemID);
+        fragment.setArguments(args);
+        return fragment;
     }
 
 

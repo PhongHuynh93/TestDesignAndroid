@@ -27,9 +27,12 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    /**
+     * add detail list
+     */
     private void addList() {
         ArticleDetailFragment fragment =  ArticleDetailFragment.newInstance(DummyContent.ITEMS.get(0).id);
-        getFragmentManager().beginTransaction().replace(R.id.article_detail_container, fragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.article_detail_container, fragment).commit();
     }
 
     /**
