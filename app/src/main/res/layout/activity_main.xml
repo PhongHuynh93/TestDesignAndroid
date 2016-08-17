@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <!--toolbar and listview-->
+    <!--toolbar and listview(mobile type and tablet type)-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

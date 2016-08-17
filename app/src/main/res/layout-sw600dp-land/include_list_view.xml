@@ -1,0 +1,31 @@
+<!--fixme - contain listview for tablet, two layout side by side -->
+<!--in linearlayout, you can use divider(but in other cannot)-->
+    <!--http://stackoverflow.com/questions/5049852/android-drawing-separator-divider-line-in-layout-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:baselineAligned="false"
+    android:divider="@drawable/divider"
+    android:orientation="horizontal"
+    android:showDividers="middle"
+    tools:context=".MainActivity">
+
+    <!--use weight to position -->
+    <fragment
+        android:id="@+id/article_list"
+        android:name="dhbk.android.testdesignandroid.ArticleListFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        tools:layout="@android:layout/list_content"/>
+
+    <FrameLayout
+        android:id="@+id/article_detail_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="5"/>
+
+</LinearLayout>
